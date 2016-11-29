@@ -101,6 +101,7 @@ def train(options):
     data_provision_att_vqa = DataProvisionAttVqa(options['data_path'],
                                                  options['feature_file'])
 
+    logger.info('DataProvisionAttVqa')##change by zhenghe
     batch_size = options['batch_size']
     max_epochs = options['max_epochs']
 
