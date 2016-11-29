@@ -65,12 +65,12 @@ options['init_lstm_svd'] = False
 
 # learning parameters
 options['optimization'] = 'sgd' # choices
-options['batch_size'] = 100
+options['batch_size'] = 2##change by zhenghe
 options['lr'] = numpy.float32(0.1)
 options['w_emb_lr'] = numpy.float32(80)
 options['momentum'] = numpy.float32(0.9)
 options['gamma'] = 1
-options['step'] = 10
+options['step'] = 100##change by zhenghe
 options['step_start'] = 100
 options['max_epochs'] = 50
 options['weight_decay'] = 0.0005
