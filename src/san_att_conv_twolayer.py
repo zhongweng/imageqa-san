@@ -65,12 +65,12 @@ options['init_lstm_svd'] = False
 
 # learning parameters
 options['optimization'] = 'sgd' # choices
-options['batch_size'] = 100
+options['batch_size'] = 2 ##change by zhenghe
 options['lr'] = numpy.float32(0.1)
 options['w_emb_lr'] = numpy.float32(80)
 options['momentum'] = numpy.float32(0.9)
 options['gamma'] = 1
-options['step'] = 10
+options['step'] = 100 ##change by zhenghe
 options['step_start'] = 100
 options['max_epochs'] = 50
 options['weight_decay'] = 0.0005
@@ -91,6 +91,17 @@ def get_lr(options, curr_epoch):
         return options['lr'] * (options['gamma'] ** power)  #
     else:
         return options['lr']
+#change by zhenghe
+def zhtest(options):
+    logger = logging.getLogger('root')
+    logger.info(options)
+    logger.info('start training')
+    
+    data_provision_att_vqa = DataProvisionAttVqa(options['data_path'],
+                                                 options['feature_file'])
+                                                 
+    logger.info('test for DataProvisionAttVqa is finished!')##change by zhenghe
+
 
 def train(options):
 
@@ -101,6 +112,7 @@ def train(options):
     data_provision_att_vqa = DataProvisionAttVqa(options['data_path'],
                                                  options['feature_file'])
 
+    logger.info('DataProvisionAttVqa')##change by zhenghe
     batch_size = options['batch_size']
     max_epochs = options['max_epochs']
 
@@ -262,4 +274,6 @@ if __name__ == '__main__':
     for change in args.changes:
         logger.info('dict({%s})'%(change))
         options.update(eval('dict({%s})'%(change)))
-    train(options)
+    #train(options)
+    zhtest(options)
+
