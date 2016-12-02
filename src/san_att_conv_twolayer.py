@@ -18,9 +18,11 @@ from data_processing_vqa import *
 ##################
 options = OrderedDict()
 # data related
-options['data_path'] = '../data_vqa'
+# windows can't use relative path, so use the absolute path. PS:change to your path
+path_prj = 'F:/vs2013WorkSpace/imageqa-san'
+options['data_path'] = path_prj +'/data_vqa'
 options['feature_file'] = 'trainval_feat.h5'
-options['expt_folder'] = '../expt'
+options['expt_folder'] = path_prj+ '/expt'
 options['model_name'] = 'imageqa'
 options['train_split'] = 'trainval1'
 options['val_split'] = 'val2'
@@ -274,6 +276,6 @@ if __name__ == '__main__':
     for change in args.changes:
         logger.info('dict({%s})'%(change))
         options.update(eval('dict({%s})'%(change)))
-    #train(options)
-    zhtest(options)
+    train(options)
+    #zhtest(options)
 
